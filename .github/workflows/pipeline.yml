@@ -1,0 +1,34 @@
+name: CI/CD Pipeline — IS3 Demo
+
+# Se ejecuta en cada push a la rama main
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest   # GitHub nos da una máquina virtual gratis
+
+    steps:
+      # Paso 1: Descarga el código del repositorio
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      # Paso 2: Inicia sesión en Docker Hub
+      - name: Login a Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Paso 3: Construye la imagen Docker
+      - name: Build de la imagen
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/is3-demo:latest .
+
+      # Paso 4: Sube la imagen a Docker Hub
+      - name: Push a Docker Hub
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/is3-demo:latest
+
+      # Paso 5: Mensaje de confirmación
+      - name: Pipeline completado
+        run: echo "Build y push exitosos. Imagen disponible en Docker Hub."
