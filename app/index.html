@@ -3,10 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <title>Demo DevOps - IS3</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      text-align: center;
+      padding: 3rem;
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #58a6ff, #3fb950);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .pipeline-icon { font-size: 4rem; margin-bottom: 1.5rem; }
+    p { font-size: 1.1rem; color: #8b949e; margin-bottom: 0.8rem; line-height: 1.6; }
+    .version {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.5rem 1.2rem;
+      background: #238636;
+      color: white;
+      border-radius: 2rem;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    .tech {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .tech span {
+      padding: 0.4rem 1rem;
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      color: #58a6ff;
+    }
+  </style>
 </head>
 <body>
-  <h1>¡Pipeline CI/CD funcionando!</h1>
-  <p>Yo también entiendo la frustración pero creo que decir que es una mierda la comunicación porque nos cueste ponernos de acuerdo es un poco insultante y minimiza el esfuerzo que estamos poniendo todos, estamos intentando trabajar en grupo y las cosas no siempre salen como queremos. Creo que es mejor concentrarse en cómo podemos hacer la reunión en vez de tomar una actitud tan negativa que no resuelve nada y lo que hace es crear un ambiente tenso, de nuevo yo los entiendo la frustración y la comparto pero me parece que no es la mejor forma de hablar</p>
-  <p>Versión: 1.0.67 — Actualizado automáticamente</p>
+  <div class="container">
+    <div class="pipeline-icon">&#9881;</div>
+    <h1>Pipeline CI/CD Funcionando</h1>
+    <p>Esta pagina se construye y despliega automaticamente cada vez que alguien hace push al repositorio.</p>
+    <p>Ingenieria de Sistemas III — Demo DevOps</p>
+    <span class="version">Version 2.0.0</span>
+    <div class="tech">
+      <span>GitHub Actions</span>
+      <span>Docker</span>
+      <span>Nginx</span>
+    </div>
+  </div>
 </body>
 </html>
